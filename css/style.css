@@ -193,11 +193,31 @@ a:hover { color: var(--accent-hover); }
 }
 
 .hero-sub {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   font-weight: 300;
-  max-width: 420px;
+  max-width: 600px;
 }
+
+.outline-cta {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.outline-cta:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--tag-bg);
+  transform: translateY(-1px);
+}
+
+.linkedin-cta:hover {
+  background: #005a87;
+  box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+}
+
+/* ── EMPTY STATE ─────────────────────────── */
 
 .hero-line {
   height: 1px;
