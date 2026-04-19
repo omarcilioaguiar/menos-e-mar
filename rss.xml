@@ -7,21 +7,7 @@
     <language>pt-BR</language>
     <atom:link href="https://omarcilioaguiar.github.io/menos-e-mar/rss.xml" rel="self" type="application/rss+xml"/>
 
-    <item>
-      <title>Por que decidi começar este blog</title>
-      <link>https://omarcilioaguiar.github.io/menos-e-mar/posts/primeiro-post.html</link>
-      <guid>https://omarcilioaguiar.github.io/menos-e-mar/posts/primeiro-post.html</guid>
-      <pubDate>Fri, 18 Apr 2026 12:00:00 -0300</pubDate>
-      <description>Existe um impulso estranho que aparece de vez em quando — a vontade de registrar o que está acontecendo.</description>
-    </item>
-
-    <item>
-      <title>Uma semana sem celular: o que aprendi</title>
-      <link>https://omarcilioaguiar.github.io/menos-e-mar/posts/segundo-post.html</link>
-      <guid>https://omarcilioaguiar.github.io/menos-e-mar/posts/segundo-post.html</guid>
-      <pubDate>Fri, 10 Apr 2026 12:00:00 -0300</pubDate>
-      <description>Sete dias longe das notificações, dos stories e do scroll infinito. Não foi fácil, mas foi necessário.</description>
-    </item>
+    <!-- Em breve novos itens -->
 
   </channel>
 </rss>
