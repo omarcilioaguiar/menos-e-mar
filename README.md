@@ -36,9 +36,9 @@ blog/
 1. Crie um repositório público no GitHub (ex: `meu-blog`)
 2. Suba todos os arquivos para a branch `main`
 3. Vá em **Settings → Pages → Source → Deploy from branch → main → / (root)**
-4. Aguarde alguns minutos e acesse: `https://seuusuario.github.io/meu-blog`
+4. Aguarde alguns minutos e acesse: `https://omarcilioaguiar.github.io/menos-e-mar/meu-blog`
 
-> Se o repositório se chamar `seuusuario.github.io`, o blog ficará em `https://seuusuario.github.io/` diretamente.
+> Se o repositório se chamar `omarcilioaguiar.github.io/menos-e-mar`, o blog ficará em `https://omarcilioaguiar.github.io/menos-e-mar/` diretamente.
 
 ## ✏️ Como criar um novo post
 
