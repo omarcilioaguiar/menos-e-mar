@@ -8,9 +8,18 @@
           {{ if eq .Language.Lang "en" }}Less and Sea Blog{{ else }}Menos e Mar Blog{{ end }}
         </h1>
         <div class="hx:mt-4 hx:text-sm hx:space-x-2 hx:text-gray-500">
-          <a href="/" class="{{ if eq .Language.Lang "pt-br" }}hx:underline hx:font-bold hx:text-slate-900 hx:dark:text-slate-100{{ end }} hover:hx:underline">PT</a>
+          {{- $pt := . -}}
+          {{- $en := . -}}
+          {{- range .AllTranslations -}}
+            {{- if eq .Language.Lang "en" }}{{ $en = . }}{{ end -}}
+            {{- if eq .Language.Lang "pt-br" }}{{ $pt = . }}{{ end -}}
+          {{- end -}}
+          
+          <a href="{{ if eq .Language.Lang "pt-br" }}{{ .RelPermalink }}{{ else }}{{ (index (where .AllTranslations "Lang" "pt-br") 0).RelPermalink | default "/" }}{{ end }}" 
+             class="{{ if eq .Language.Lang "pt-br" }}hx:underline hx:font-bold hx:text-slate-900 hx:dark:text-slate-100{{ end }} hover:hx:underline">PT</a>
           <span>|</span>
-          <a href="/en/" class="{{ if eq .Language.Lang "en" }}hx:underline hx:font-bold hx:text-slate-900 hx:dark:text-slate-100{{ end }} hover:hx:underline">EN</a>
+          <a href="{{ if eq .Language.Lang "en" }}{{ .RelPermalink }}{{ else }}{{ (index (where .AllTranslations "Lang" "en") 0).RelPermalink | default "/en/" }}{{ end }}" 
+             class="{{ if eq .Language.Lang "en" }}hx:underline hx:font-bold hx:text-slate-900 hx:dark:text-slate-100{{ end }} hover:hx:underline">EN</a>
         </div>
       </header>
 
