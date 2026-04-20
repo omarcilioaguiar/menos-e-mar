@@ -1,0 +1,89 @@
+{{ define "main" }}
+<div class="hx:mx-auto hx:flex hextra-max-page-width">
+  <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main id="content" class="hx:w-full hx:min-w-0 hextra-max-content-width hx:px-6 hx:pt-4 hx:md:px-12">
+      
+      <header class="hx:text-center hx:mt-8 hx:mb-12">
+        <h1 class="hx:text-4xl hx:font-bold hx:text-slate-900 hx:dark:text-slate-100">
+          {{ if eq .Language.Lang "en" }}Less and Sea Blog{{ else }}Menos e Mar Blog{{ end }}
+        </h1>
+        <div class="hx:mt-4 hx:text-sm hx:space-x-2 hx:text-gray-500">
+          <a href="/" class="{{ if eq .Language.Lang "pt-br" }}hx:underline hx:font-bold hx:text-slate-900 hx:dark:text-slate-100{{ end }} hover:hx:underline">PT</a>
+          <span>|</span>
+          <a href="/en/" class="{{ if eq .Language.Lang "en" }}hx:underline hx:font-bold hx:text-slate-900 hx:dark:text-slate-100{{ end }} hover:hx:underline">EN</a>
+        </div>
+      </header>
+
+      {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+      {{- if .IsHome -}}
+        {{- $pages = where .Site.RegularPages "Section" "posts" -}}
+      {{- end -}}
+
+      {{- range $pages.GroupByDate "2006 - January" -}}
+      <section class="hx:mb-10">
+        <h2 id="{{ .Key | urlize }}" class="hx:text-2xl hx:font-bold hx:mt-8 hx:mb-4 hx:text-slate-900 hx:dark:text-slate-100">
+          {{- /* Translate month names if in PT */ -}}
+          {{- $key := .Key -}}
+          {{- if eq $.Language.Lang "pt-br" -}}
+            {{- $key = replace $key "January" "Janeiro" -}}
+            {{- $key = replace $key "February" "Fevereiro" -}}
+            {{- $key = replace $key "March" "Março" -}}
+            {{- $key = replace $key "April" "Abril" -}}
+            {{- $key = replace $key "May" "Maio" -}}
+            {{- $key = replace $key "June" "Junho" -}}
+            {{- $key = replace $key "July" "Julho" -}}
+            {{- $key = replace $key "August" "Agosto" -}}
+            {{- $key = replace $key "September" "Setembro" -}}
+            {{- $key = replace $key "October" "Outubro" -}}
+            {{- $key = replace $key "November" "Novembro" -}}
+            {{- $key = replace $key "December" "Dezembro" -}}
+          {{- end -}}
+          {{- $key | title -}}
+        </h2>
+        <ul class="hx:list-disc hx:pl-6 hx:space-y-3">
+          {{- range .Pages -}}
+          <li>
+            <a href="{{ .RelPermalink }}" class="hx:text-primary-600 hover:hx:underline hx:text-lg">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end -}}
+        </ul>
+      </section>
+      {{- end -}}
+
+    </main>
+  </article>
+  
+  {{/* Sidebar with 'Nesta página' anchors */}}
+  <aside class="hx:hidden hx:xl:block hx:w-64 hx:shrink-0 hx:p-6 hx:sticky hx:top-16">
+    <h3 class="hx:text-sm hx:font-bold hx:uppercase hx:tracking-wider hx:text-slate-500 hx:mb-4">
+      {{ if eq .Language.Lang "en" }}On this page{{ else }}Nesta página{{ end }}
+    </h3>
+    <ul class="hx:text-sm hx:space-y-2">
+      {{- range $pages.GroupByDate "2006 - January" -}}
+        {{- $key := .Key -}}
+        {{- if eq $.Language.Lang "pt-br" -}}
+          {{- $key = replace $key "January" "Janeiro" -}}
+          {{- $key = replace $key "February" "Fevereiro" -}}
+          {{- $key = replace $key "March" "Março" -}}
+          {{- $key = replace $key "April" "Abril" -}}
+          {{- $key = replace $key "May" "Maio" -}}
+          {{- $key = replace $key "June" "Junho" -}}
+          {{- $key = replace $key "July" "Julho" -}}
+          {{- $key = replace $key "August" "Agosto" -}}
+          {{- $key = replace $key "September" "Setembro" -}}
+          {{- $key = replace $key "October" "Outubro" -}}
+          {{- $key = replace $key "November" "Novembro" -}}
+          {{- $key = replace $key "December" "Dezembro" -}}
+        {{- end -}}
+        <li>
+          <a href="#{{ .Key | urlize }}" class="hx:text-slate-600 hx:dark:text-slate-400 hover:hx:text-primary-600">
+            {{ $key | title }}
+          </a>
+        </li>
+      {{- end -}}
+    </ul>
+  </aside>
+</div>
+{{ end }}

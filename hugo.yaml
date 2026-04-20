@@ -1,0 +1,131 @@
+baseURL: "https://menos-e-mar.com/"
+title: "Menos e Mar"
+theme: "hextra"
+
+defaultContentLanguage: "pt-br"
+
+languages:
+  pt-br:
+    languageName: "Português"
+    contentDir: "content/pt"
+    weight: 1
+    params:
+      title: "Menos e Mar"
+      description: "Minimalismo e Prática"
+    menu:
+      main:
+        - name: "Sobre"
+          identifier: "about"
+          url: "/about/"
+          weight: 10
+        - name: "GitHub"
+          identifier: "github"
+          url: "https://github.com/omarcilioaguiar"
+          params:
+            icon: github
+          weight: 20
+        - name: "Buscar"
+          identifier: "search"
+          url: "#"
+          params:
+            type: search
+          weight: 30
+        - name: "YouTube"
+          identifier: "youtube"
+          url: "https://www.youtube.com/@menos_e_mar"
+          params:
+            icon: youtube
+          weight: 40
+        - name: "LinkedIn"
+          identifier: "linkedin"
+          url: "https://www.linkedin.com/in/omarcilioaguiar/"
+          params:
+            icon: linkedin
+          weight: 50
+        - name: "Loja"
+          identifier: "shop"
+          url: "https://linktr.ee/omarcilioaguiar"
+          params:
+            icon: shopping-cart
+          weight: 60
+        - name: "Modo"
+          identifier: "theme-toggle"
+          url: "#"
+          params:
+            type: theme-toggle
+          weight: 70
+  en:
+    languageName: "English"
+    contentDir: "content/en"
+    weight: 2
+    params:
+      title: "Less and Sea"
+      description: "Minimalism and Practice"
+    menu:
+      main:
+        - name: "About"
+          identifier: "about"
+          url: "/about/"
+          weight: 10
+        - name: "GitHub"
+          identifier: "github"
+          url: "https://github.com/omarcilioaguiar"
+          params:
+            icon: github
+          weight: 20
+        - name: "Search"
+          identifier: "search"
+          url: "#"
+          params:
+            type: search
+          weight: 30
+        - name: "YouTube"
+          identifier: "youtube"
+          url: "https://www.youtube.com/@menos_e_mar"
+          params:
+            icon: youtube
+          weight: 40
+        - name: "LinkedIn"
+          identifier: "linkedin"
+          url: "https://www.linkedin.com/in/omarcilioaguiar/"
+          params:
+            icon: linkedin
+          weight: 50
+        - name: "Shop"
+          identifier: "shop"
+          url: "https://linktr.ee/omarcilioaguiar"
+          params:
+            icon: shopping-cart
+          weight: 60
+        - name: "Mode"
+          identifier: "theme-toggle"
+          url: "#"
+          params:
+            type: theme-toggle
+          weight: 70
+
+params:
+  displayTitle: "Menos e Mar"
+  navbar:
+    displayLogo: true
+    title: "Menos e Mar"
+    width: "max-w-[1240px]"
+    github: "https://github.com/omarcilioaguiar"
+  footer:
+    displayCopyright: true
+    displayPoweredBy: true
+  search:
+    enable: true
+    next: true
+  editURL:
+    enable: false
+  darkmode: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+taxonomies:
+  tag: tags
+  category: categories

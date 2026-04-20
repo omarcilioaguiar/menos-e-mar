@@ -1,0 +1,89 @@
+---
+import HeaderLink from './HeaderLink.astro';
+
+interface Props {
+	lang?: 'pt' | 'en';
+}
+
+const { lang = 'pt' } = Astro.props;
+
+// Diccionário simples para navegação
+const t = {
+	pt: {
+		home: 'Início',
+		archive: 'Arquivo',
+		about: 'Sobre',
+		subscribe: 'Inscreva-se'
+	},
+	en: {
+		home: 'Home',
+		archive: 'Archive',
+		about: 'About',
+		subscribe: 'Subscribe'
+	}
+};
+
+const nav = t[lang];
+---
+
+<header class="site-header">
+	<div class="header-inner">
+		<a href={`/${lang}/`} class="logo">
+			<span class="logo-bracket">[</span>
+			<span class="logo-name">menos.e.mar</span>
+			<span class="logo-bracket">]</span>
+		</a>
+		
+		<nav class="main-nav">
+			<HeaderLink href={`/${lang}/`}>{nav.home}</HeaderLink>
+			<HeaderLink href={`/${lang}/blog`}>{nav.archive}</HeaderLink>
+			<HeaderLink href={`/${lang}/about`}>{nav.about}</HeaderLink>
+			<button class="subscribe-btn" id="subscribeBtn">{nav.subscribe}</button>
+			
+			<div class="lang-switch">
+				<a href={Astro.url.pathname.replace(`/${lang}/`, '/en/')} class={lang === 'en' ? 'active' : ''}>EN</a>
+				<span>/</span>
+				<a href={Astro.url.pathname.replace(`/${lang}/`, '/pt/')} class={lang === 'pt' ? 'active' : ''}>PT</a>
+			</div>
+
+			<button class="theme-toggle" id="themeToggle" title="Alternar tema">
+				<svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+				<svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+			</button>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.lang-switch {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		display: flex;
+		gap: 0.4rem;
+		color: var(--text-faint);
+		margin-left: 0.5rem;
+	}
+	.lang-switch a {
+		color: var(--text-muted);
+	}
+	.lang-switch a.active {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>
+
+<script>
+	const themeToggle = document.getElementById('themeToggle');
+	themeToggle?.addEventListener('click', () => {
+		const root = document.documentElement;
+		const current = root.getAttribute('data-theme');
+		const next = current === 'dark' ? 'light' : 'dark';
+		root.setAttribute('data-theme', next);
+		localStorage.setItem('blog-theme', next);
+	});
+
+	const subscribeBtn = document.getElementById('subscribeBtn');
+	subscribeBtn?.addEventListener('click', () => {
+		window.open('https://substack.com/@menosmar', '_blank');
+	});
+</script>

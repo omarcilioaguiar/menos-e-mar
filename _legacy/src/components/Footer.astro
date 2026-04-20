@@ -1,0 +1,45 @@
+---
+const { lang = 'pt' } = Astro.props;
+const today = new Date();
+
+const t = {
+	pt: {
+		developed: 'Desenvolvido por',
+		allRights: 'Todos os direitos reservados.'
+	},
+	en: {
+		developed: 'Developed by',
+		allRights: 'All rights reserved.'
+	}
+};
+
+const labels = t[lang as keyof typeof t];
+---
+
+<footer class="site-footer">
+	<div class="container">
+		<p>&copy; {today.getFullYear()} Menos e Mar — {labels.developed} <a href="https://omarcilioaguiar.vercel.app" target="_blank">Marcílio</a></p>
+	</div>
+</footer>
+
+<style>
+	.site-footer {
+		padding: 4rem 0;
+		margin-top: 4rem;
+		border-top: 1px solid var(--border);
+		text-align: center;
+		color: var(--text-faint);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+	}
+	.site-footer a {
+		color: var(--text-muted);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-color: var(--border);
+	}
+	.site-footer a:hover {
+		color: var(--accent);
+		text-decoration-color: var(--accent);
+	}
+</style>

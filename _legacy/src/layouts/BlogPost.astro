@@ -1,0 +1,126 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Footer from '../components/Footer.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & { headings: any[] };
+
+const { title, description, pubDate, updatedDate, heroImage, lang, headings } = Astro.props;
+---
+
+<BaseLayout title={`${title} — Menos e Mar`} description={description} lang={lang}>
+	<Header lang={lang} />
+	
+	<main class="main-content">
+		<div class="post-layout-container">
+			<div class="container post-main">
+				<a href={`/${lang}/blog`} class="back-link">
+					{lang === 'pt' ? '← Voltar para o arquivo' : '← Back to archive'}
+				</a>
+
+				<header class="post-header">
+					<div class="post-meta">
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<div class="last-updated-on">
+								{lang === 'pt' ? 'Atualizado em' : 'Updated on'} <FormattedDate date={updatedDate} />
+							</div>
+						)}
+					</div>
+					<h1>{title}</h1>
+					<hr />
+				</header>
+
+				<div class="hero-image">
+					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+				</div>
+
+				<div class="article-body">
+					<slot />
+				</div>
+
+				<!-- NEWSLETTER (Estilo Substack) -->
+				<section class="post-newsletter">
+					<div class="newsletter-card">
+						<h3>{lang === 'pt' ? 'Gostou deste conteúdo?' : 'Enjoyed this content?'}</h3>
+						<p>{lang === 'pt' ? 'Assine para receber novas publicações diretamente no seu e-mail.' : 'Subscribe to receive new posts directly in your inbox.'}</p>
+						<div class="newsletter-form-mock">
+							<button class="cta-button" onclick="window.open('https://substack.com/@menosmar', '_blank')">
+								{lang === 'pt' ? 'Inscrever-se agora' : 'Subscribe now'}
+							</button>
+						</div>
+					</div>
+				</section>
+
+				<!-- BARRA SOCIAL (MOCK) -->
+				<div class="post-social-bar">
+					<span class="social-label">
+						{lang === 'pt' ? 'O que achou deste tema?' : 'What do you think?'}
+					</span>
+					<button class="social-btn like-btn">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+						<span>0</span>
+					</button>
+				</div>
+			</div>
+
+			<!-- SIDEBAR TOC (Estilo Akita) -->
+			<TableOfContents headings={headings} lang={lang} />
+		</div>
+	</main>
+
+	<Footer lang={lang} />
+</BaseLayout>
+
+<style>
+	.back-link {
+		display: inline-block;
+		margin-bottom: 2rem;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--text-faint);
+		transition: color 0.2s;
+	}
+	.back-link:hover { color: var(--accent); }
+
+	.post-header {
+		margin-bottom: 2rem;
+	}
+	.post-meta {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--text-muted);
+		margin-bottom: 1rem;
+	}
+	.hero-image {
+		margin-bottom: 2.5rem;
+		border-radius: 8px;
+		overflow: hidden;
+		border: 1px solid var(--border);
+	}
+	.hero-image img {
+		width: 100%;
+		display: block;
+	}
+	h1 {
+		font-family: var(--font-display);
+		font-size: clamp(2rem, 5vw, 3rem);
+		font-weight: 900;
+		line-height: 1.15;
+		margin-bottom: 1rem;
+	}
+	hr {
+		border: 0;
+		border-top: 1px solid var(--border);
+		margin: 2rem 0;
+	}
+
+	/* Ajustes para alinhar conteúdo central e sidebar */
+	.post-main {
+		max-width: 100% !important;
+		margin: 0 !important;
+	}
+</style>

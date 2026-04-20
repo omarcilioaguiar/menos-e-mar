@@ -1,0 +1,18 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Binary
+hugo
+hugo_extended
+
+# Logs
+build_log.txt
+
+# Local junk
+.vscode/
+.DS_Store
+node_modules/
+dist/
+.astro/

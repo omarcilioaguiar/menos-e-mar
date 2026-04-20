@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'en';
+---
+
+<BaseLayout title="About — Menos e Mar" description="Who is Marcílio and what is the Menos e Mar project.">
+	<Header lang={lang} />
+	
+	<main class="main-content">
+		<div class="container about-content">
+			<div class="about-avatar" style="font-size: 4rem; margin-bottom: 2rem; display: block;">✍</div>
+
+			<h1 style="font-family:var(--font-display); font-size: 2.5rem; font-weight: 900; margin-bottom: 0.5rem;">
+				Hi, I'm <em style="color:var(--accent); font-style: italic;">Marcílio</em>.
+			</h1>
+			<p style="color:var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">
+				Software Engineer, 34 years old, married, and a minimalism enthusiast.
+			</p>
+
+			<div class="article-body">
+				<p>
+					<strong>Menos e Mar</strong> is not just a blog; it's a personal experimentation project. The name comes from a play on words with the maxim <em>"Less is More"</em> (Menos é Mais in Portuguese), where <strong>MAR</strong> (Sea) is an extension of myself — <strong>MAR</strong>cílio.
+				</p>
+
+				<p>
+					As someone passionate about technology and simplicity, I believe we can explore infinite possibilities with fewer resources, focusing on what truly matters. Here, I share this journey of creation and discovery.
+				</p>
+
+				<div class="about-actions" style="margin: 2.5rem 0; display: flex; flex-wrap: wrap; gap: 1rem;">
+					<a href="https://www.youtube.com/@menos_e_mar" target="_blank" class="cta-button outline-cta">
+						Watch on YouTube
+					</a>
+					<a href="https://www.linkedin.com/in/omarcilioaguiar/" target="_blank" class="cta-button outline-cta" style="background:#0077b5; color:#fff; border-color: #0077b5;">
+						LinkedIn
+					</a>
+				</div>
+
+				<h2>Where to find me</h2>
+				<p>
+					I have a <a href="https://omarcilioaguiar.vercel.app" target="_blank">professional website</a> where I showcase my work as an Engineer, and a <a href="https://linktr.ee/omarcilioaguiar" target="_blank">recommendations store</a> with tools and products I use and recommend.
+				</p>
+
+				<h2>Contact</h2>
+				<p>
+					Feel free to connect with me on <a href="https://www.linkedin.com/in/omarcilioaguiar/" target="_blank">LinkedIn</a> or follow the code of this project on <a href="https://github.com/omarcilioaguiar" target="_blank">GitHub</a>.
+				</p>
+			</div>
+		</div>
+	</main>
+
+	<Footer lang={lang} />
+</BaseLayout>

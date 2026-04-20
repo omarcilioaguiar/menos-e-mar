@@ -1,0 +1,256 @@
+/* ============================================
+   BLOG PESSOAL — CSS PRINCIPAL (Adaptado para Astro)
+   Tema: editorial escuro / claro alternável
+   ============================================ */
+
+:root {
+  --bg: #0e0e0e;
+  --bg-card: #161616;
+  --bg-card-hover: #1c1c1c;
+  --border: #2a2a2a;
+  --text: #e8e4dc;
+  --text-muted: #888;
+  --text-faint: #555;
+  --accent: #e8a838;
+  --accent-hover: #f0bb55;
+  --accent-soft: rgba(232,168,56,0.12);
+  --tag-bg: #1e1e1e;
+  --like-active: #e05a5a;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 4px;
+  --shadow: 0 2px 20px rgba(0,0,0,0.4);
+  --transition: 0.2s ease;
+}
+
+[data-theme="light"] {
+  --bg: #f5f2ed;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafafa;
+  --border: #e0dbd2;
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --text-faint: #aaa;
+  --accent: #c8860a;
+  --accent-hover: #a86e08;
+  --accent-soft: rgba(200,134,10,0.1);
+  --tag-bg: #f0ece6;
+  --shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: var(--accent-hover); }
+
+.container {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── HEADER ─────────────────────────────── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background var(--transition);
+}
+
+.header-inner {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px; /* Aumentado para estilo Substack */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.logo-bracket { color: var(--accent); }
+
+/* ── SUBSTACK STYLE NAVIGATION ───────────── */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text);
+}
+
+.subscribe-btn {
+  background: var(--text);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: opacity var(--transition);
+}
+
+.subscribe-btn:hover {
+  opacity: 0.9;
+  color: var(--bg);
+}
+
+/* ── ARTICLE / CONTENT ───────────────────── */
+
+.article-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.article-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin: 2.5rem 0 1rem;
+}
+
+/* ── TOC SIDEBAR (Estilo Akita) ──────────── */
+
+.toc-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  max-width: 200px;
+  display: none; /* Default hidden, show on desktop */
+}
+
+@media (min-width: 1200px) {
+  .post-layout-container {
+    display: grid;
+    grid-template-columns: 1fr 740px 1fr;
+    gap: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .post-main {
+    grid-column: 2;
+  }
+  .toc-sidebar {
+    display: block;
+    grid-column: 3;
+    padding-top: 2rem;
+  }
+}
+
+.toc-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin-bottom: 1rem;
+}
+
+.toc-list {
+  list-style: none;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.toc-link {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.toc-link:hover { color: var(--accent); }
+.toc-link.active { color: var(--accent); font-weight: 600; }
+
+/* ── NEWSLETTER SECTION ──────────────────── */
+.post-newsletter {
+  margin: 4rem 0;
+  padding: 3rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.newsletter-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-card p {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.newsletter-form-mock .cta-button {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.newsletter-form-mock .cta-button:hover {
+  transform: scale(1.02);
+  background: var(--accent-hover);
+}
+
+/* ── UTILS ───────────────────────────────── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 1001;
+  transition: width 0.1s ease;
+}

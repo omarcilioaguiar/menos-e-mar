@@ -1,0 +1,27 @@
+{
+  "name": "menos-e-mar",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.1.6",
+    "astro": "^4.16.18",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "tailwindcss": "^4.2.2"
+  }
+}

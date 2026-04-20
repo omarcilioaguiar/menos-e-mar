@@ -1,0 +1,30 @@
+<aside class="hx:hidden hx:xl:block hx:w-64 hx:shrink-0 hx:p-6 hx:sticky hx:top-16">
+  <div class="hx:mb-8">
+    <h3 class="hx:text-sm hx:font-bold hx:uppercase hx:tracking-wider hx:text-slate-500 hx:mb-4">Sobre o Autor</h3>
+    <p class="hx:text-sm hx:leading-relaxed hx:text-slate-600 hx:dark:text-slate-400">
+      <strong>Marcílio Aguiar</strong><br>
+      Engenheiro de Software e entusiasta do minimalismo. Explorando como viver mais com menos.
+    </p>
+  </div>
+
+  <div class="hx:mb-8">
+    <h3 class="hx:text-sm hx:font-bold hx:uppercase hx:tracking-wider hx:text-slate-500 hx:mb-4">Redes Sociais</h3>
+    <ul class="hx:text-sm hx:space-y-2">
+      <li><a href="https://github.com/omarcilioaguiar" class="hx:text-slate-600 hx:dark:text-slate-400 hover:hx:text-primary-600">GitHub</a></li>
+      <li><a href="https://youtube.com/@mar_cilio" class="hx:text-slate-600 hx:dark:text-slate-400 hover:hx:text-primary-600">YouTube</a></li>
+    </ul>
+  </div>
+
+  <div class="hx:mb-8">
+    <h3 class="hx:text-sm hx:font-bold hx:uppercase hx:tracking-wider hx:text-slate-500 hx:mb-4">Categorias</h3>
+    <ul class="hx:text-sm hx:space-y-2">
+      {{ range $name, $items := .Site.Taxonomies.categories }}
+        <li>
+          <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="hx:text-slate-600 hx:dark:text-slate-400 hover:hx:text-primary-600">
+            {{ $name | title }} <span class="hx:text-xs hx:opacity-50">({{ len $items }})</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</aside>
