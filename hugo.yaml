@@ -1,5 +1,5 @@
 baseURL: "https://menos-e-mar.com/"
-title: "Menos e Mar"
+title: "Menos é Mar"
 theme: "hextra"
 
 defaultContentLanguage: "pt-br"
@@ -10,7 +10,7 @@ languages:
     contentDir: "content/pt"
     weight: 1
     params:
-      title: "Menos e Mar"
+      title: "Menos é Mar"
       description: "Minimalismo e Prática"
     menu:
       main:
@@ -105,10 +105,10 @@ languages:
           weight: 70
 
 params:
-  displayTitle: "Menos e Mar"
+  displayTitle: "Menos é Mar"
   navbar:
     displayLogo: true
-    title: "Menos e Mar"
+    title: "Menos é Mar"
     width: "max-w-[1240px]"
     github: "https://github.com/omarcilioaguiar"
   footer:

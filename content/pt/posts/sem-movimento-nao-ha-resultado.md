@@ -26,7 +26,7 @@ Correr em uma esteira é atividade. Correr em direção a um destino é progress
 
 Muitas vezes, a organização excessiva é uma forma de procrastinação. Organizamos o "setup perfeito", o "app de notas perfeito", a "rotina perfeita", mas nunca começamos a execução. O movimento real dói porque exige esforço mental e foco total.
 
-O **Menos e Mar** é sobre filtrar esse ruído e manter o movimento constante no que realmente importa. Se não há movimento real, o resultado é apenas estagnação com cansaço.
+O **Menos é Mar** é sobre filtrar esse ruído e manter o movimento constante no que realmente importa. Se não há movimento real, o resultado é apenas estagnação com cansaço.
 
 ---
 Assista ao vídeo onde exploramos esses conceitos na prática.

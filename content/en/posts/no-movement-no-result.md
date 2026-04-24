@@ -9,7 +9,7 @@ Many people spend months planning the "perfect scenario." They wait to have the 
 
 The truth, as uncomfortable as it may be, is that **perfection is just a polite excuse for procrastination**.
 
-In my most recent video, I talk about a pillar that governs my project *Menos e Mar*: the importance of the initial movement. Without action, the best plan in the world is just paper (or ones and zeros on a hard drive).
+In my most recent video, I talk about a pillar that governs my project *Menos é Mar*: the importance of the initial movement. Without action, the best plan in the world is just paper (or ones and zeros on a hard drive).
 
 > "Done is better than perfect but undone."
 

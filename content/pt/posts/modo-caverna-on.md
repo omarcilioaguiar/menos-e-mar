@@ -51,4 +51,4 @@ No vídeo abaixo, eu mostro como configurei meu setup e compartilho os resultado
   </a>
 </div>
 
-Este é apenas o começo da nossa conversa aqui no blog. O **Menos e Mar** é sobre isso: explorar o que é essencial.
+Este é apenas o começo da nossa conversa aqui no blog. O **Menos é Mar** é sobre isso: explorar o que é essencial.
